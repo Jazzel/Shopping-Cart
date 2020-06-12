@@ -39,4 +39,4 @@ jobs:
     
     # Deploy Surge
     - name: Deploy React App to Surge
-      run: surge ./build jazzel-covidtracker.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+      run: surge ./build jazzel-shoppingcart.surge.sh --token ${{ secrets.SURGE_TOKEN }}
