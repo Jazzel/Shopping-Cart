@@ -11,15 +11,20 @@ export const ProductDetails = (route) => {
   const {
     state: { products },
   } = useContext(Context);
+
   const currentProductId = route.match.params.id;
 
   useEffect(() => {
-    const productId = currentProductId;
-    const selectedProduct = products.find(
-      (item) => item.id === parseInt(productId)
-    );
-    setSelectedProduct(selectedProduct);
-  }, []);
+    const fetchData = () => {
+        const productId = currentProductId;
+        const selectedProduct = products.find(
+          (item) => item.id === parseInt(productId)
+        );
+        setSelectedProduct(selectedProduct);
+
+    };
+    fetchData();
+  }, [currentProductId, products]);
 
   return (
     <div>

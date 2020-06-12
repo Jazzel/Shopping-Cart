@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./App.css";
 import { ProductList } from "./pages/ProductList";
 import { ProductDetails } from "./pages/ProductDetails";

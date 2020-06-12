@@ -1,6 +1,4 @@
-import React from 'react'
 import createDataContext from "./CreateDataContext";
-import {  Redirect } from 'react-router-dom';
 
 const initialState = {
   products: [
@@ -26,15 +24,20 @@ const productReducer = (state, action) => {
   switch (action.type) {
     case "GET_ITEM":
       console.log(action.payload);
-      return state;
+      return ;
     default:
       return state;
   }
 };
 
+const getProduct = (dispatch) => {
+  return (id) => {
+    dispatch({ type: "GET_ITEM", payload:id });
+  };
+};
 
 export const { Context, Provider } = createDataContext(
   productReducer,
-  {},
+  {getProduct},
   { products: initialState.products }
 );
