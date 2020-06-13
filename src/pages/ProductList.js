@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Product } from "../components/Product";
 import { Context } from "./../context/ProductContext";
-
+import { Link } from "react-router-dom";
 
 export const ProductList = () => {
   const {
@@ -11,8 +11,13 @@ export const ProductList = () => {
   return (
     <div>
       {products.map((product) => (
-        <Product key={product.id} product={product} />
+        <div key={product.id}>
+          <Product product={product} />
+          <Link to={`product/${product.id}`}>Details</Link>
+        </div>
       ))}
+      <br />
+      <Link to="/cart/">Go to Cart</Link>
     </div>
   );
 };

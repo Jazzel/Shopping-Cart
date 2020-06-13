@@ -10,6 +10,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
+import { Cart } from "./pages/Cart";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Router>
           <Switch>
             <Route path="/" component={ProductList} exact />
+            <Route path="/cart" component={Cart} exact />
             <Route path="/product/:id" component={ProductDetails} exact />
             <Redirect to="/" />
           </Switch>
