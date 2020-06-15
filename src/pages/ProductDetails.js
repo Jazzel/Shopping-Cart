@@ -3,6 +3,9 @@ import { Product } from "../components/Product";
 import { Context } from "./../context/ProductContext";
 import { Grid, Typography } from "@material-ui/core";
 
+import { Header } from "./../components/Header";
+import { Footer } from "./../components/Footer";
+
 export const ProductDetails = (route) => {
   const [selectedProduct, setSelectedProduct] = useState({
     id: null,
@@ -28,6 +31,7 @@ export const ProductDetails = (route) => {
 
   return (
     <div>
+      <Header />
       {selectedProduct.id ? (
         <Grid container style={{padding:40}} spacing={3}>
           <Grid item xs={12} sm={6}>
@@ -56,6 +60,8 @@ export const ProductDetails = (route) => {
           </Grid>
         </Grid>
       ) : null}
+      <Footer />
+
     </div>
   );
 };
