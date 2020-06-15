@@ -10,6 +10,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Box } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 export const Product = ({ product, page }) => {
   const {
@@ -55,20 +56,25 @@ export const Product = ({ product, page }) => {
   return (
     <Box boxShadow={3}>
       <Card>
-        <CardActionArea href={`product/${product.id}`}>
-          <CardMedia component="img" alt="cart-image" image={image} />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              #{id} - {name}
-            </Typography>
-            <Typography variant="h6" color="textSecondary" component="p">
-              Price: ${price}
-            </Typography>
-            <Typography color="textSecondary" component="p">
-              Click to see more details.
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+        <Link
+          to={`product/${product.id}`}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <CardActionArea>
+            <CardMedia component="img" alt="cart-image" image={image} />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                #{id} - {name}
+              </Typography>
+              <Typography variant="h6" color="textSecondary" component="p">
+                Price: ${price}
+              </Typography>
+              <Typography color="textSecondary" component="p">
+                Click to see more details.
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Link>
         <CardActions>
           {isInCart(product) && (
             <Button

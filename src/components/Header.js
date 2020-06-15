@@ -1,18 +1,19 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Toolbar, Button } from "@material-ui/core/";
 import Typography from "@material-ui/core/Typography";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import Badge from '@material-ui/core/Badge';
-import { withStyles } from '@material-ui/core/styles';
+import Badge from "@material-ui/core/Badge";
+import { withStyles } from "@material-ui/core/styles";
 import { Context as CartContext } from "./../context/CartContext";
+import { Link } from "react-router-dom";
 
 const CartBadge = withStyles((theme) => ({
   badge: {
     right: -3,
     top: 13,
     border: `2px solid ${theme.palette.background.paper}`,
-    padding: '0 4px',
+    padding: "0 4px",
   },
 }))(Badge);
 
@@ -54,7 +55,7 @@ export const Header = () => {
   const {
     state: { cart },
   } = useContext(CartContext);
-  const itemCount= cart.length;
+  const itemCount = cart.length;
 
   return (
     <React.Fragment>
@@ -66,14 +67,20 @@ export const Header = () => {
           align="center"
           className="styled-head"
         >
-          <a className="styled-link" style={{textDecoration:"none",color:"black"}} href="/">Shopping Cart</a>
+          <Link
+            className="styled-link"
+            style={{ textDecoration: "none", color: "black" }}
+            to="/"
+          >
+            Shopping Cart
+          </Link>
         </Typography>
         <a href="/cart/">
-        <Button variant="outlined" size="small">
-          <CartBadge badgeContent={itemCount} color="primary">
-            <ShoppingCartIcon />
-          </CartBadge>
-        </Button>
+          <Button variant="outlined" size="small">
+            <CartBadge badgeContent={itemCount} color="primary">
+              <ShoppingCartIcon />
+            </CartBadge>
+          </Button>
         </a>
       </Toolbar>
     </React.Fragment>
