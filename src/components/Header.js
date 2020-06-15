@@ -75,13 +75,13 @@ export const Header = () => {
             Shopping Cart
           </Link>
         </Typography>
-        <a href="/cart/">
+        <Link to="/cart/">
           <Button variant="outlined" size="small">
             <CartBadge badgeContent={itemCount} color="primary">
               <ShoppingCartIcon />
             </CartBadge>
           </Button>
-        </a>
+        </Link>
       </Toolbar>
     </React.Fragment>
   );
