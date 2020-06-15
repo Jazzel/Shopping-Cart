@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Product } from "../components/Product";
 import { Context } from "./../context/ProductContext";
-import { Link } from "react-router-dom";
+import { Grid, Container } from "@material-ui/core";
 
 export const ProductList = () => {
   const {
@@ -9,15 +9,17 @@ export const ProductList = () => {
   } = useContext(Context);
 
   return (
-    <div>
-      {products.map((product) => (
-        <div key={product.id}>
-          <Product product={product} />
-          <Link to={`product/${product.id}`}>Details</Link>
-        </div>
-      ))}
+    <Container>
       <br />
-      <Link to="/cart/">Go to Cart</Link>
-    </div>
+      <br />
+      <Grid container align="center" spacing={1}>
+        {products.map((product) => (
+          <Grid item xs={12} sm={6} md={3} key={product.id}>
+            <Product product={product} />
+          </Grid>
+        ))}
+      </Grid>
+      <br />
+    </Container>
   );
 };

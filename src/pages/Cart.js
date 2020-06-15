@@ -20,6 +20,9 @@ import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import CloseIcon from "@material-ui/icons/Close";
 
+
+
+
 const useStyles = makeStyles((theme) => ({
   cartContainer: {
     paddingLeft: 55,
@@ -69,6 +72,7 @@ export const Cart = () => {
   return (
     <Box display="flex" width="100%" height="100%" alignItems="center">
       <Container>
+      <br/><br/>
         <Paper className={classes.paper} elevation={3}>
           <Typography
             className="styled-header"
@@ -76,7 +80,7 @@ export const Cart = () => {
             component="h2"
             gutterBottom
           >
-            Shopping Cart
+            Cart
           </Typography>
           <Box className={classes.cartContainer}>
             <Grid container className={classes.cart}>
@@ -112,7 +116,7 @@ export const Cart = () => {
 
                               <TableCell align="center">
                                 <Button
-                                  variant="outline"
+                                  variant="outlined"
                                   onClick={() => increaseProduct(cartItem.id)}
                                   color="primary"
                                 >
@@ -122,7 +126,7 @@ export const Cart = () => {
                                   {cartItem.quantity}
                                 </Typography>
                                 <Button
-                                  variant="outline"
+                                  variant="outlined"
                                   onClick={() => decreaseProduct(cartItem.id)}
                                   color="primary"
                                 >
@@ -161,7 +165,7 @@ export const Cart = () => {
                   </Typography>
                   <Button variant="outlined">
                     <Link to="/" className={classes.links}>
-                      Go back to home
+                      Go Back to home
                     </Link>
                   </Button>
                 </Box>

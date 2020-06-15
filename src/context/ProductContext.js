@@ -7,18 +7,31 @@ const initialState = {
       name: "Red Shirt",
       price: 10.09,
       image: "/pp.jpeg",
+      details:"dsada",
+
     },
     {
       id: 2,
       name: "Black Shirt",
       price: 10.09,
       image: "/pp.jpeg",
+      details:"dsada",
     },
     {
       id: 3,
       name: "White Shirt",
       price: 10.09,
       image: "/pp.jpeg",
+      details:"dsada",
+
+    },
+    {
+      id: 4,
+      name: "White Shirt",
+      price: 10.09,
+      image: "/pp.jpeg",
+      details:"dsada",
+
     },
   ],
 };

@@ -60,6 +60,7 @@ const cartReducer = (state, action) => {
       return {
         ...cartTotal([]),
         ...state,
+        checkout: false,
         cart: [],
       };
     case "CHECKOUT":
