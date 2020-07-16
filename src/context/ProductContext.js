@@ -4,32 +4,32 @@ const initialState = {
   products: [
     {
       id: 1,
-      name: "Red Shirt",
+      name: "Shoe 1",
       price: 10.09,
-      image: "/pp.jpeg",
+      image: "/1.png",
       details:"dsada",
 
     },
     {
       id: 2,
-      name: "Black Shirt",
+      name: "Shoe 2",
       price: 10.09,
-      image: "/pp.jpeg",
+      image: "/2.png",
       details:"dsada",
     },
     {
       id: 3,
-      name: "White Shirt",
+      name: "Shoe 3",
       price: 10.09,
-      image: "/pp.jpeg",
+      image: "/3.png",
       details:"dsada",
 
     },
     {
       id: 4,
-      name: "White Shirt",
+      name: "Shoe 4",
       price: 10.09,
-      image: "/pp.jpeg",
+      image: "/4.png",
       details:"dsada",
 
     },

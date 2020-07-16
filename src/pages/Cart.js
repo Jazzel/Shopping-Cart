@@ -35,8 +35,10 @@ const useStyles = makeStyles((theme) => ({
     color: "inherit",
   },
   emptyCart: {
-    flex: 1,
-    alignSelf: "center",
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     textAlign: "center",
   },
   large: {
@@ -48,12 +50,13 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary,
+    minHeight: "400px",
   },
   success: {
-    color: "green",
+    color: "#e74c3c",
   },
   info: {
-    color: "blue",
+    color: "#e74c3c",
   },
 }));
 
@@ -70,8 +73,18 @@ export const Cart = () => {
   } = useContext(CartContext);
 
   return (
-    <Box>
-      <Header />
+    <div
+      style={{
+        backgroundColor: "rgb(238,241,243)",
+        background:
+          "linear-gradient(180deg, rgba(238,241,243,1) 0%, rgba(238,241,243,1) 35%, rgba(248,250,250,1) 75%, rgba(255,255,255,1) 100%)",
+        color: "black",
+      }}
+    >
+      <br />
+      <Container>
+        <Header />
+      </Container>
 
       <Box display="flex" width="100%" height="100%" alignItems="center">
         <Container>
@@ -129,13 +142,17 @@ export const Cart = () => {
                                   <Typography style={{ padding: 5 }}>
                                     {cartItem.quantity}
                                   </Typography>
-                                  <Button
-                                    variant="outlined"
-                                    onClick={() => decreaseProduct(cartItem.id)}
-                                    color="primary"
-                                  >
-                                    <ExpandMoreIcon />
-                                  </Button>
+                                  {cartItem.quantity > 0 ? (
+                                    <Button
+                                      variant="outlined"
+                                      onClick={() =>
+                                        decreaseProduct(cartItem.id)
+                                      }
+                                      color="primary"
+                                    >
+                                      <ExpandMoreIcon />
+                                    </Button>
+                                  ) : null}
                                 </TableCell>
                                 <TableCell align="right">
                                   <Typography variant="h6">
@@ -159,35 +176,39 @@ export const Cart = () => {
                   </Grid>
                 ) : checkout ? (
                   <Box className={classes.emptyCart}>
-                    <Typography
-                      variant="h6"
-                      className={classes.success}
-                      component="h2"
-                      gutterBottom
-                    >
-                      Checkout successfull.
-                    </Typography>
-                    <Button variant="outlined">
-                      <Link to="/" className={classes.links}>
-                        Go Back to home
-                      </Link>
-                    </Button>
+                    <div>
+                      <Typography
+                        variant="h6"
+                        className={classes.success}
+                        component="h2"
+                        gutterBottom
+                      >
+                        Checkout successfull.
+                      </Typography>
+                      <Button variant="outlined">
+                        <Link to="/" className={classes.links}>
+                          Go Back to home
+                        </Link>
+                      </Button>
+                    </div>
                   </Box>
                 ) : (
                   <Box className={classes.emptyCart}>
-                    <Typography
-                      variant="h6"
-                      className={classes.info}
-                      component="h2"
-                      gutterBottom
-                    >
-                      You haven't added anything in the cart.
-                    </Typography>
-                    <Button variant="outlined">
-                      <Link to="/" className={classes.links}>
-                        Go back to home
-                      </Link>
-                    </Button>
+                    <div>
+                      <Typography
+                        variant="h6"
+                        className={classes.info}
+                        component="h2"
+                        gutterBottom
+                      >
+                        You haven't added anything in the cart.
+                      </Typography>
+                      <Button variant="outlined">
+                        <Link to="/" className={classes.links}>
+                          Go back to home
+                        </Link>
+                      </Button>
+                    </div>
                   </Box>
                 )}
               </Grid>
@@ -229,13 +250,24 @@ export const Cart = () => {
                                 </Button>
                               </Grid>
                               <Grid item>
-                                <Button
-                                  onClick={doCheckout}
-                                  color="primary"
-                                  variant="contained"
-                                >
-                                  CHECKOUT
-                                </Button>
+                                {total > 0 ? (
+                                  <Button
+                                    onClick={doCheckout}
+                                    color="primary"
+                                    variant="contained"
+                                  >
+                                    CHECKOUT
+                                  </Button>
+                                ) : (
+                                  <Button
+                                    onClick={doCheckout}
+                                    color="primary"
+                                    variant="contained"
+                                    disabled
+                                  >
+                                    CHECKOUT
+                                  </Button>
+                                )}
                               </Grid>
                             </Grid>
                           </TableCell>
@@ -246,11 +278,13 @@ export const Cart = () => {
                 </Box>
               )}
             </Box>
-            <br /> <br /> <br />
+            <br />
+            <br />
           </Paper>
+          <br /> <br />
         </Container>
       </Box>
       <Footer />
-    </Box>
+    </div>
   );
 };

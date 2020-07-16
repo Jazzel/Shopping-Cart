@@ -20,6 +20,7 @@ const CartBadge = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     borderBottom: `3px solid ${theme.palette.divider}`,
+    backgroundColor: "white"
   },
   toolbarTitle: {
     flex: 1,
@@ -72,12 +73,12 @@ export const Header = () => {
             style={{ textDecoration: "none", color: "black" }}
             to="/"
           >
-            Shopping Cart
+            JazzShop
           </Link>
         </Typography>
         <Link to="/cart/">
           <Button variant="outlined" size="small">
-            <CartBadge badgeContent={itemCount} color="primary">
+            <CartBadge badgeContent={itemCount} color="error">
               <ShoppingCartIcon />
             </CartBadge>
           </Button>
